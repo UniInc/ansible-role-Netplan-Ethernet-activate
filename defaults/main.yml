@@ -4,9 +4,9 @@ template: dhcp
 # Activate all, or a specific interface
 all: true
 
-# activate_num: 0
+# Which (list) would you like to modify?
+modify_interface: "{{ inactive_interface }}" # || active_interface
 
-# Which would you like to modify?
-modify_interface: "{{ inactive_interface }}"
+# interface_num: 0
 
 debug: false
