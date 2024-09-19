@@ -1,7 +1,11 @@
-Role Name
+Netplan ethernet interface
 =========
 
-A brief description of the role goes here.
+Configure Network Interfaces using Netplan!
+Ideal for server OS'es.
+
+Function:
+- activate any inactive interface, with: dhcp
 
 Requirements
 ------------
