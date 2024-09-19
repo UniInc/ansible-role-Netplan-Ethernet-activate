@@ -1,0 +1,3 @@
+---
+- ansible.builtin.debug:
+    msg: "This interface {{ idx }} is {{ item }} at {{ file_num + idx }}{{ netplan_file_suffix }}"

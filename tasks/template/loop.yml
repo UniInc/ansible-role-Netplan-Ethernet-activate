@@ -1,0 +1,16 @@
+---
+
+- name: Loop over modify_interface
+  ansible.builtin.include_tasks:
+    file: config.yml
+  loop: "{{ modify_interface }}"
+  loop_control:
+    index_var: idx
+  when: false
+
+- name: Debug modify_interface
+  ansible.builtin.include_tasks:
+    file: .dbg.yml
+  loop: "{{ modify_interface }}"
+  loop_control:
+    index_var: idx

@@ -2,12 +2,12 @@
 
 - name: Each interface
   ansible.builtin.set_fact:
-    this_interface: "{{ inactive_interface[ idx ] }}"
+    this_interface: "{{ item }}"
 
 - name: Template Netplan config
   ansible.builtin.template:
     src: "{{ template }}.yaml.j2"
-    dest: "/etc/netplan/{{ file_num + }}{{ netplan_file_suffix }}"
+    dest: "/etc/netplan/{{ file_num + idx }}{{ netplan_file_suffix }}"
     owner: root
     group: root
     mode: '0600'

@@ -1,8 +1,6 @@
 ---
 
-- name: Loop inactive_interface
-  ansible.builtin.debug:
-    msg: "This interface {{ idx }}"
-  loop: "{{ inactive_interface }}"
-  loop_control:
-    index_var: idx
+- name: loop
+  ansible.builtin.include_tasks:
+    file: loop.yml
+  when: all
