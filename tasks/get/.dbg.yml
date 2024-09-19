@@ -1,0 +1,23 @@
+---
+- name: Is Interface active?
+  ansible.builtin.debug:
+    msg: "Interface: {{ item }} active:{{ lookup('vars', 'ansible_' + item).active }}"
+  loop: "{{ ansible_interfaces }}"
+
+- name: Interface details
+  ansible.builtin.debug:
+    msg: "Interface: {{ lookup('vars', 'ansible_' + item) }}"
+  loop: "{{ ansible_interfaces }}"
+
+- name: get Inactive Interface
+  ansible.builtin.debug:
+    msg: "Interface: {{ item }} active:{{ lookup('vars', 'ansible_' + item).active }}"
+  loop: "{{ ansible_interfaces }}"
+  when: lookup('vars', 'ansible_' + item).active == false
+
+
+- ansible.builtin.debug:
+    msg: "Inactive {{ inactive_interface }}"
+
+- ansible.builtin.debug:
+    msg: "Active {{ active_interface }}"

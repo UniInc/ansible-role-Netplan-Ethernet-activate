@@ -1,0 +1,7 @@
+---
+file_num: 99
+netplan_file_suffix: "_config.yaml"
+
+# Filled by get/interface.yml
+active_interface: []
+inactive_interface: []

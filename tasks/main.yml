@@ -1,0 +1,8 @@
+---
+- name: get
+  ansible.builtin.include_tasks:
+    file: get/interface.yml
+
+- name: template
+  ansible.builtin.include_tasks:
+    file: template/main.yml

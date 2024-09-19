@@ -1,0 +1,20 @@
+---
+
+- name: get Inactive Interface
+  ansible.builtin.set_fact:
+    inactive_interface: "{{ inactive_interface + [item] }}"
+  loop: "{{ ansible_interfaces }}"
+  when: lookup('vars', 'ansible_' + item).active == false
+
+
+- name: get Active Interface
+  ansible.builtin.set_fact:
+    active_interface: "{{ active_interface + [item] }}"
+  loop: "{{ ansible_interfaces }}"
+  when: lookup('vars', 'ansible_' + item).active == true
+
+
+- name: debug
+  ansible.builtin.include_tasks:
+    file: .dbg.yml
+  when: debug

@@ -1,0 +1,15 @@
+---
+
+- name: Each interface
+  ansible.builtin.set_fact:
+    this_interface: "{{ inactive_interface[ idx ] }}"
+
+- name: Template Netplan config
+  ansible.builtin.template:
+    src: "{{ template }}.yaml.j2"
+    dest: "/etc/netplan/{{ file_num + }}{{ netplan_file_suffix }}"
+    owner: root
+    group: root
+    mode: '0600'
+  become: true
+  # notify: Netplan apply
