@@ -1,6 +1,9 @@
 ---
+- name: Template Selection
+  ansible.builtin.include_tasks:
+    file: set.yml
 
 - name: loop
   ansible.builtin.include_tasks:
-    file: loop.yml
+    file: loop/start.yml
   when: all

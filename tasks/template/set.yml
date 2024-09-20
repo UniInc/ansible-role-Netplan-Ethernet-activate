@@ -1,0 +1,10 @@
+---
+
+# sch: &oq="ip+route+del+default"+netplan+reboot
+# https://unix.stackexchange.com/questions/517995/prevent-netplan-from-creating-default-routes-to-0-0-0-0-0
+# https://askubuntu.com/questions/1298995/default-gateway-route-being-automatically-added-to-main-table
+
+- name: dhcp4_overrides_use_routes = False
+  ansible.builtin.set_fact:
+    template: "dhcp4_overrides use_routes"
+  when: not dhcp4_overrides_use_routes
