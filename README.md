@@ -7,6 +7,18 @@ Ideal for server OS'es.
 Function:
 - activate any inactive interface, with: dhcp
 
+## Single Default Gateway
+By default: added interface will use `use-routes: false` to prevent Duplicate Gateways breaking Internet access.
+```
+dhcp4-overrides:
+    use-routes: false
+```
+
+you can confirm this with: `ip route`
+
+
+https://unix.stackexchange.com/questions/517995/prevent-netplan-from-creating-default-routes-to-0-0-0-0-0
+
 Requirements
 ------------
 
